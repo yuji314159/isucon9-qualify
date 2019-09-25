@@ -4,6 +4,7 @@
     gid: 1001
     state: present
     system: no
+  become: yes
 
 - name: Create isucon user
   user:
@@ -15,6 +16,7 @@
     shell: /bin/bash
     state: present
     system: no
+  become: yes
 
 - name: Add sudoers
   copy:
@@ -23,3 +25,4 @@
     owner: root
     group: root
     mode: 0440
+  become: yes

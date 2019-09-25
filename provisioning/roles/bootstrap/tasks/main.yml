@@ -49,3 +49,5 @@
     owner: isucon
     group: isucon
     mode: 0755
+  become: yes
+  become_user: isucon

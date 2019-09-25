@@ -5,6 +5,7 @@
     owner: root
     group: root
     mode: 0700
+  become: yes
 
 - name: Copy TLS Certificate and Key
   copy:
@@ -16,6 +17,7 @@
   with_items:
     - { dest: "/etc/nginx/ssl/fullchain.pem", src: "certs/isucon9.catatsuy.org/fullchain.pem" }
     - { dest: "/etc/nginx/ssl/privkey.pem", src: "certs/isucon9.catatsuy.org/privkey.pem" }
+  become: yes
 
 - name: Copy Nginx config
   copy:
@@ -24,6 +26,7 @@
     owner: root
     group: root
     mode: 0644
+  become: yes
 
 - name: Copy isucari Nginx config
   copy:
@@ -34,6 +37,7 @@
     mode: 0644
   with_items:
     - isucari.conf
+  become: yes
 
 - name: Enable isucari config
   file:
@@ -42,3 +46,4 @@
     state: link
   notify:
     - reload nginx
+  become: yes

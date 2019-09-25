@@ -5,24 +5,24 @@
   roles:
     - user.isucon
     - bootstrap
-    - aliyun
+    # - aliyun
     - webapp.deploy
 
     - nginx
     - mysql
-    - golang
-    - perl
-    - php
-    - ruby
+    # - golang
+    # - perl
+    # - php
+    # - ruby
     - python
-    - nodejs
+    # - nodejs
     - webapp.mysql
-    - webapp.golang
-    - webapp.perl
-    - webapp.php
-    - webapp.ruby
+    # - webapp.golang
+    # - webapp.perl
+    # - webapp.php
+    # - webapp.ruby
     - webapp.python
-    - webapp.nodejs
+    # - webapp.nodejs
     - webapp.nginx
 
   tasks:
@@ -37,4 +37,4 @@
       with_items:
         - nginx.service
         - mysql.service
-        - isucari.golang.service
+        - isucari.python.service

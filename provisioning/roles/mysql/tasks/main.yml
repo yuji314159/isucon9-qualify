@@ -2,6 +2,7 @@
   apt:
     pkg: ['mysql-server', 'libmysqlclient-dev']
     state: present
+  become: yes
 
 - name: Enable and start mysql service
   systemd:
@@ -9,3 +10,4 @@
     state: started
     daemon_reload: yes
     enabled: yes
+  become: yes
