@@ -222,6 +222,7 @@ def api_shipment_status(shipment_url, params={}):
             shipment_url + "/status",
             headers=dict(Authorization=Constants.ISUCARI_API_TOKEN),
             json=params,
+            verify=False,
         )
         res.raise_for_status()
     except (socket.gaierror, requests.HTTPError) as err:
@@ -788,7 +789,8 @@ def post_buy():
                                         to_name=buyer['account_name'],
                                         from_address=seller['address'],
                                             from_name=seller['account_name'],
-                                    ))
+                                    ),
+                                    verify=False)
                 res.raise_for_status()
             except (socket.gaierror, requests.HTTPError) as err:
                 conn.rollback()
@@ -805,7 +807,8 @@ def post_buy():
                                         api_key=Constants.PAYMENT_SERVICE_ISUCARI_API_KEY,
                                         token=flask.request.json['token'],
                                         price=target_item['price'],
-                                    ))
+                                    ),
+                                    verify=False)
                 res.raise_for_status()
             except (socket.gaierror, requests.HTTPError) as err:
                 conn.rollback()
@@ -966,7 +969,8 @@ def post_ship():
                 host = get_shipment_service_url()
                 res = requests.post(host + "/request",
                                     headers=dict(Authorization=Constants.ISUCARI_API_TOKEN),
-                                    json=dict(reserve_id=shipping["reserve_id"]))
+                                    json=dict(reserve_id=shipping["reserve_id"]),
+                                    verify=False)
                 res.raise_for_status()
             except (socket.gaierror, requests.HTTPError) as err:
                 conn.rollback()
