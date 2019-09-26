@@ -7,7 +7,7 @@
   roles:
     - user.isucon
     - bootstrap
-    - aliyun
+    # - aliyun
     - external.deploy
 
     - kernel-tune

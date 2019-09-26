@@ -16,6 +16,7 @@
     mode: 0644
   notify:
     - daemon-reload
+  become: yes
 
 - name: Stop and disable benchmark-worker
   systemd:
@@ -23,3 +24,4 @@
     state: stopped
     daemon_reload: yes
     enabled: no
+  become: yes

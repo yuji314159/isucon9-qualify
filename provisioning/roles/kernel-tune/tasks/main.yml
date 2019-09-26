@@ -3,6 +3,7 @@
     dest: /etc/sysctl.d/50-fs.conf
     content: |
       fs.file-max=655360
+  become: yes
 
 - name: Tune up network
   become: yes
