@@ -1,8 +1,12 @@
 [webapp]
-
+webapp01.sisucon9.tk
 
 [dev]
-
+dev.sisucon9.tk
 
 [bench]
+bench.sisucon9.tk
 
+[all:vars]
+ansible_ssh_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/sisucon.pem
